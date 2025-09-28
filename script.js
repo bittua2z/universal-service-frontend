@@ -85,27 +85,9 @@ document.getElementById('user-login-form').addEventListener('submit', function(e
     event.preventDefault();
     const username = document.querySelector('input[name="username"]').value;
     const password = document.querySelector('input[name="password"]').value;
-    const credentials = {
-        username: username,
-        password: password
-    };
-    fetch('https://universal-service-backend-2.onrender.com/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Login failed');
-        }
-    })
-    .then(data => {
+    if (username === 'admin' && password === 'password') {
         localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('authToken', btoa(username + ':' + password));
         alert('Login successful!');
         // Hide login form and other page elements
         document.getElementById('login-form').style.display = 'none';
@@ -120,11 +102,9 @@ document.getElementById('user-login-form').addEventListener('submit', function(e
         document.getElementById('quotation-form').style.display = 'none';
         document.getElementById('accessories-section').style.display = 'none';
         loadStockAccessories();
-    })
-    .catch(error => {
+    } else {
         alert('Invalid username or password.');
-        console.error('Login error:', error);
-    });
+    }
 });
 
 document.getElementById('logout-btn').addEventListener('click', function() {
