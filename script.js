@@ -89,7 +89,7 @@ document.getElementById('user-login-form').addEventListener('submit', function(e
         username: username,
         password: password
     };
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch('https://universal-service-backend-2.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -265,7 +265,7 @@ document.getElementById('add-row-btn').addEventListener('click', function() {
         formData.append('price', price);
         formData.append('detail', detail);
         const authToken = localStorage.getItem('authToken');
-        fetch('http://localhost:8080/api/stock', {
+        fetch('https://universal-service-backend-2.onrender.com/api/stocks', {
             method: 'POST',
             headers: {
                 'Authorization': 'Basic ' + authToken
@@ -304,7 +304,7 @@ document.getElementById('add-row-btn').addEventListener('click', function() {
 async function loadStockAccessories() {
     try {
         const authToken = localStorage.getItem('authToken');
-        const response = await fetch('http://localhost:8080/api/stock', {
+        const response = await fetch('https://universal-service-backend-2.onrender.com/api/stocks', {
             headers: {
                 'Authorization': 'Basic ' + authToken
             }
@@ -360,7 +360,7 @@ async function loadStockAccessories() {
             deleteBtn.addEventListener('click', function() {
                 if (confirm('Are you sure you want to delete this stock?')) {
                     const authToken = localStorage.getItem('authToken');
-                    fetch('http://localhost:8080/api/stock/' + item.id, {
+                    fetch('https://universal-service-backend-2.onrender.com/api/stocks/' + item.id, {
                         method: 'DELETE',
                         headers: {
                             'Authorization': 'Basic ' + authToken
@@ -475,7 +475,7 @@ function editRow(item, currentRow) {
             formData.append('file', file);
         }
         const authToken = localStorage.getItem('authToken');
-        fetch(`http://localhost:8080/api/stock/${item.id}`, {
+        fetch(`https://universal-service-backend-2.onrender.com/api/stocks/${item.id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': 'Basic ' + authToken
@@ -512,7 +512,7 @@ function editRow(item, currentRow) {
 
 async function loadPublicAccessories() {
     try {
-        const response = await fetch('http://localhost:8080/api/stock');
+        const response = await fetch('https://universal-service-backend-2.onrender.com/api/stocks');
         const data = await response.json();
         const container = document.getElementById('public-accessories-images');
         container.innerHTML = '';
