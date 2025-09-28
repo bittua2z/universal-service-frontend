@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Service</title>
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Universal Service</h1>
+            <p>Onwar Chirag, himmatagar gujrat| Phone: 7600355061</p>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#appointment">Appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Welcome to Universal Service</h2>
+            <p>Your trusted partner for mobile, computer, and electronic repairs, parts, and development services.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Repair Services</h2>
+            <p>Get a quotation for repairing your mobile, computer, or electronic items.</p>
+            <form action="/quote" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" required>
+                <label for="item">Item:</label>
+                <input type="text" name="item" required>
+                <label for="issue">Issue:</label>
+                <textarea name="issue" required></textarea>
+                <button type="submit">Get Quotation</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Parts & Accessories</h2>
+            <div class="product-list">
+                <div class="product">
+                    <h3>Mobile Screen</h3>
+                    <p>Price: ₹500</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product">
+                    <h3>Computer RAM</h3>
+                    <p>Price: ₹2000</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="product">
+                    <h3>Custom Part</h3>
+                    <p>Price not listed</p>
+                    <form action="/product-quote" method="POST" style="display: inline;">
+                        <input type="hidden" name="item" value="Custom Part">
+                        <button type="submit">Get Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment" class="appointment">
+        <div class="container">
+            <h2>Web/App Development Appointment</h2>
+            <form action="/appointment" method="POST">
+                <label for="app-name">Name:</label>
+                <input type="text" name="name" required>
+                <label for="app-phone">Phone:</label>
+                <input type="tel" name="phone" required>
+                <label for="app-email">Email:</label>
+                <input type="email" name="email" required>
+                <label for="service">Service:</label>
+                <select name="service" required>
+                    <option value="Web Development">Web Development</option>
+                    <option value="App Development">App Development</option>
+                </select>
+                <label for="message">Message:</label>
+                <textarea name="message"></textarea>
+                <button type="submit">Submit Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Universal Service. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

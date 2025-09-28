@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Universal Service</h1>
+        <div class="info">
+            <p>Name: Chirag Pandya</p>
+            <p>Contact Number: 7600355061</p>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="quotation-btn">Quotation</button>
+            <button class="btn" id="accessories-btn">Accessories</button>
+            <button class="btn" id="about-btn">About</button>
+            <button class="btn" id="user-btn">User</button>
+        </div>
+        <div id="quotation-form" style="display: none; margin-top: 20px;">
+            <h3 style="color: white;">Apply for Quotation</h3>
+            <form id="quote-form">
+                <label style="color: white;">Name: <input type="text" name="name" required style="margin-left: 10px;"></label><br><br>
+                <label style="color: white;">Phone: <input type="tel" name="phone" required style="margin-left: 10px;"></label><br><br>
+                <label style="color: white;">Select Services:</label><br>
+                <select name="service" multiple required style="width: 100%; padding: 5px; background-color: #333; color: white; border: 1px solid #555; border-radius: 3px;">
+                    <option value="Mobile Repair">Mobile Repair</option>
+                    <option value="Computer Repair">Computer Repair</option>
+                    <option value="Printer Repair">Printer Repair</option>
+                    <option value="Washing Machine Repair">Washing Machine Repair</option>
+                    <option value="Electronics Item Repair">Electronics Item Repair</option>
+                    <option value="Electrical Work">Electrical Work</option>
+                    <option value="Other">Other</option>
+                </select><br><br>
+                <label style="color: white;">Problem Comment:</label><br>
+                <textarea name="comment" rows="4" style="width: 100%; padding: 5px; background-color: #333; color: white; border: 1px solid #555; border-radius: 3px;"></textarea><br>
+                <button type="submit" class="btn" style="margin-top: 10px;">Apply for Quotation</button>
+            </form>
+        </div>
+        <div id="accessories-section" style="display: none; margin-top: 20px;">
+            <h3 style="color: white;">Accessories</h3>
+            <div id="public-accessories-images"></div>
+        </div>
+        <div id="login-form" style="display: none; margin-top: 20px;">
+            <h3 style="color: white;">Login</h3>
+            <form id="user-login-form">
+                <label style="color: white;">Username: <input type="text" name="username" required style="margin-left: 10px;"></label><br><br>
+                <label style="color: white;">Password: <input type="password" name="password" required style="margin-left: 10px;"></label><br><br>
+                <button type="submit" class="btn" style="margin-top: 10px;">Login</button>
+            </form>
+        </div>
+        <div id="user-section" style="display: none; margin-top: 20px;">
+            <h3 style="color: white;">Welcome! You are logged in.</h3>
+            <button id="logout-btn" class="btn" style="margin-bottom: 20px;">Logout</button>
+            <button id="add-row-btn" class="btn" style="margin-bottom: 20px;">Add New Row</button>
+            <h4 style="color: white;">Stock Table</h4>
+            <table id="stock-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <thead>
+                    <tr style="background-color: #333; color: white;">
+                        <th style="border: 1px solid #555; padding: 10px;">Image</th>
+                        <th style="border: 1px solid #555; padding: 10px;">Price</th>
+                        <th style="border: 1px solid #555; padding: 10px;">Product Detail</th>
+                        <th style="border: 1px solid #555; padding: 10px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="about-section" style="display: none; margin-top: 20px;">
+            <h3 style="color: white;">About Universal Service HMT</h3>
+            <p style="color: white;">Owner: Chirag Pandya<br>Mobile Number: 7600355061<br>Location: Himmatnagar, Sabarkantha 383001<br>Universal Service HMT is a multi-service provider that offers repair and maintenance services for mobile, computer, washing machine, electronics items, and electrical work. Our team of experienced technicians fulfills all your service needs.</p>
+        </div>
+        <div class="service-tag">Available Services</div>
+        <div class="services-list">
+            <div class="service-item" onclick="toggleDetails()">1. Mobile Repair</div>
+            <div id="mobile-details" style="display: none;">
+                <ol>
+                    <li>Mobile Repair</li>
+                    <li>LCD Display Change</li>
+                    <li>Mic Problem</li>
+                    <li>Speaker Problem</li>
+                    <li>Charging Problem</li>
+                    <li>CPU EMMC UFS Chip Level Work</li>
+                </ol>
+            </div>
+            <div class="service-item" onclick="toggleComputerDetails()">2. Computer Repair</div>
+            <div id="computer-details" style="display: none;">
+                <ol>
+                    <!-- Details for computer repair can be added later -->
+                </ol>
+            </div>
+            <div class="service-item" onclick="toggleWashingDetails()">3. Washing Machine Repair</div>
+            <div id="washing-details" style="display: none;">
+                <ol>
+                    <!-- Details for washing machine repair can be added later -->
+                </ol>
+            </div>
+            <div class="service-item" onclick="toggleCarDetails()">4. Car ECM Repair</div>
+            <div id="car-details" style="display: none;">
+                <ol>
+                    <!-- Details for car ECM repair can be added later -->
+                </ol>
+            </div>
+            <div class="service-item" onclick="toggleElectronicsDetails()">5. Electronics Item Repair</div>
+            <div id="electronics-details" style="display: none;">
+                <ol>
+                    <!-- Details for electronics item repair can be added later -->
+                </ol>
+            </div>
+            <div class="service-item" onclick="toggleElectricalDetails()">6. Electrical Work Wiring Fan and Other Fitting</div>
+            <div id="electrical-details" style="display: none;">
+                <ol>
+                    <!-- Details for electrical work can be added later -->
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
